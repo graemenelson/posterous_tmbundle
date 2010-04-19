@@ -32,6 +32,8 @@ If you don't add these variables you will be prompted for them at the time of su
 
 Once you have Markdown document ready to be submitted to your posterous account, just run *Bundles > Posterous > Push Markdown To Posterous*
 
+### Title 
+
 The *title* of the post will be taken from the name of the file.  For example:
 
     This is my post.markdown
@@ -41,6 +43,10 @@ Will become
     This is my post
     
 Currently, you also get the option to change this title via a dialog popup at time of submission.  I will likely remove this, and just stick with name of the file.
+
+### Tags
+
+Currently a dialog is presented at the time of submission that allows you to enter tags (comma delimited).  I am looking into incorporating the tags into the document -- in order to get rid of the dialog input.
 
 ## Gotchas
 
