@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -w
+require 'rubygems'
+require 'uri'
+require 'rdiscount'
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/ui"
+
+current_filename = ENV['TM_FILENAME'].split('.').first
+
+title = TextMate::UI.request_string( :prompt =&gt; "The Title For Your Post:", :button1 =&gt; "OK", :default =&gt; current_filename )
+
+tags = TextMate::UI.request_string( :prompt =&gt; "Tags For Your Post (comma delimited):", :button1 =&gt; "OK" )
+
+username = ENV['TM_POSTEROUS_USERNAME']
+password = ENV['TM_POSTEROUS_PASSWORD']
+
+username ||= TextMate::UI.request_string(:prompt =&gt; "Your Posterous Username:", :button1 =&gt; "OK" ) 
+
+password ||= TextMate::UI.request_secure_string(:prompt =&gt; "Your Posterous Password:", :button1 =&gt; "OK" ) 
+
+data_elements = ["title=#{URI.escape(title)}", "body=#{URI.escape(RDiscount.new(STDIN.read).to_html)}"]
+data_elements &lt;&lt; "tags=#{URI.escape(tags)}" unless tags.empty?
+
+puts "curl -d \"#{data_elements.join("&amp;")}\" -u #{username}:#{password} http://posterous.com/api/newpost"
+
+system "curl -d \"#{data_elements.join("&amp;")}\" -u #{username}:#{password} http://posterous.com/api/newpost"
+
+
+
+
+
+
+
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>Push Markdown To Posterous</string>
+	<key>output</key>
+	<string>openAsNewDocument</string>
+	<key>uuid</key>
+	<string>239BA96C-CC2F-45F0-B4DF-C4E5646237B4</string>
+</dict>
+</plist>
