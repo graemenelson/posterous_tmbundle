@@ -54,3 +54,8 @@ Currently a dialog is presented at the time of submission that allows you to ent
 * There is no error checking at this time, if you hit *Cancel* on the input dialogs, it will continue on
 * I am not happy with all the dialog inputs, I will look into revising this.
 
+
+## TODO
+
+* After the document is posted, have a way to navigate to the new post. (Posterous returns a response with url)
+* Bulletproof the markdown encoding, for example a code block with an & was causing some problems.
