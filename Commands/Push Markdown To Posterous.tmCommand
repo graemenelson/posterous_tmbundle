@@ -43,7 +43,7 @@ system "curl -d \"#{data_elements.join("&amp;")}\" -u #{username}:#{password} ht
 	<key>name</key>
 	<string>Push Markdown To Posterous</string>
 	<key>output</key>
-	<string>openAsNewDocument</string>
+	<string>discard</string>
 	<key>uuid</key>
 	<string>239BA96C-CC2F-45F0-B4DF-C4E5646237B4</string>
 </dict>

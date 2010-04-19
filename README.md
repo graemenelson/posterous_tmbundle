@@ -50,6 +50,7 @@ Currently a dialog is presented at the time of submission that allows you to ent
 
 ## Gotchas
 
+* The posts aren't secure, I need to look at getting SSL working when posting to Posterous
 * There is no error checking at this time, if you hit *Cancel* on the input dialogs, it will continue on
 * I am not happy with all the dialog inputs, I will look into revising this.
 
